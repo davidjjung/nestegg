@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "alexsmobs"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "nest_egg:emu_egg_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "alexsmobs:emu_egg"
+  }
+}

@@ -1,6 +1,6 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
-issueTrackerURL = ""
+issueTrackerURL = "https://github.com/davidjjung/nestegg/issues"
 license = "MIT License"
 
 [[mods]]
@@ -11,7 +11,7 @@ itemIcon = "minecraft:dirt"
 configBackground = "minecraft:textures/block/dirt.png"
 authors = "DavigJ"
 credits = "Noodlescript"
-displayURL = ""
+displayURL = "https://modrinth.com/project/nest-egg"
 displayName = "Nest Egg"
 description = '''
     An Incubation add-on that adds some egg-related behaviors.

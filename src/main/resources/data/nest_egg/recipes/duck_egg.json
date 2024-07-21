@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "naturalist"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "nest_egg:duck_egg_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "naturalist:duck_egg"
+  }
+}

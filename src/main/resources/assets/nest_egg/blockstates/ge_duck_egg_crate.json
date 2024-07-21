@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "nest_egg:block/duck_egg_crate"
+    }
+  }
+}

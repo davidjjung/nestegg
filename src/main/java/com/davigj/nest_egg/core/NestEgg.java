@@ -1,5 +1,6 @@
 package com.davigj.nest_egg.core;
 
+import com.davigj.nest_egg.core.registry.NEBlocks;
 import com.davigj.nest_egg.core.registry.NEItems;
 import com.teamabnormals.blueprint.common.world.storage.tracking.DataProcessors;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
@@ -36,7 +37,9 @@ public class NestEgg {
 
 		REGISTRY_HELPER.register(bus);
 
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> NEItems::buildCreativeTabContents);
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
+            NEBlocks.buildCreativeTabContents();
+        });
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);

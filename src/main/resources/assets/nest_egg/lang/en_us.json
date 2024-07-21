@@ -5,6 +5,9 @@
   "block.nest_egg.twig_ge_duck_nest": "Twig Duck Nest",
   "block.nest_egg.hay_emu_nest": "Hay Emu Nest",
   "block.nest_egg.twig_emu_nest": "Twig Emu Nest",
+  "block.nest_egg.emu_egg_crate": "Emu Egg Crate",
+  "block.nest_egg.duck_egg_crate": "Duck Egg Crate",
+  "block.nest_egg.ge_duck_egg_crate": "Duck Egg Crate",
 
   "subtitles.nest_egg.mob.incubator_coo": "Brooding",
   "subtitles.entity.raccoon.sniff": "Raccoon sniffs",
