@@ -1,0 +1,66 @@
+{
+  "entity.bird.incubator_coo": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "nest_egg:mob/bird/coo1",
+        "volume": 0.6
+      },
+      {
+        "name": "nest_egg:mob/bird/coo2",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.nest_egg.mob.incubator_coo"
+  },
+  "block.nest.crack": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "nest_egg:block/nest/crack1"
+      },
+      {
+        "name": "nest_egg:block/nest/crack2"
+      },
+      {
+        "name": "nest_egg:block/nest/crack3"
+      },
+      {
+        "name": "nest_egg:block/nest/crack4"
+      }
+    ],
+    "subtitle": "subtitles.nest_egg.block.egg_crack"
+  },
+  "block.nest.hatch": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "nest_egg:block/nest/hatch",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.nest_egg.block.egg_hatch"
+  },
+  "entity.raccoon.sniff": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "nest_egg:mob/raccoon/sniff1",
+        "volume": 0.6
+      },
+      {
+        "name": "nest_egg:mob/raccoon/sniff2",
+        "volume": 0.6
+      },
+      {
+        "name": "nest_egg:mob/raccoon/sniff3",
+        "volume": 0.6
+      },
+      {
+        "name": "nest_egg:mob/raccoon/sniff4",
+        "volume": 0.6
+      }
+    ],
+    "subtitle": "subtitles.entity.raccoon.sniff"
+  }
+}

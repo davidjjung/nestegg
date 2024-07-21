@@ -1,0 +1,13 @@
+{
+  "block.nest_egg.hay_duck_nest": "Hay Duck Nest",
+  "block.nest_egg.twig_duck_nest": "Twig Duck Nest",
+  "block.nest_egg.hay_ge_duck_nest": "Hay Duck Nest",
+  "block.nest_egg.twig_ge_duck_nest": "Twig Duck Nest",
+  "block.nest_egg.hay_emu_nest": "Hay Emu Nest",
+  "block.nest_egg.twig_emu_nest": "Twig Emu Nest",
+
+  "subtitles.nest_egg.mob.incubator_coo": "Brooding",
+  "subtitles.entity.raccoon.sniff": "Raccoon sniffs",
+  "subtitles.nest_egg.block.egg_crack": "Egg cracks",
+  "subtitles.nest_egg.block.egg_hatch": "Egg hatches"
+}

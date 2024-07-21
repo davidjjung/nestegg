@@ -1,0 +1,41 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "spawn:ant_pupa",
+      "required": false
+    },
+    {
+      "id": "naturalist:caterpillar",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mysterious_worm",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:cockroach_ootheca",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:leafcutter_ant_pupa",
+      "required": false
+    },
+    {
+      "id": "buzzier_bees:bee_bottle",
+      "required": false
+    },
+    {
+      "id": "fly_high:fly_bottle",
+      "required": false
+    },
+    {
+      "id": "buzzier_bees:silverfish_bottle",
+      "required": false
+    },
+    {
+      "id": "buzzier_bees:endermite_bottle",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "incubation:block/twig_nest"
+      }
+    },
+    {
+      "apply": {
+        "model": "nest_egg:block/one_emu_egg"
+      }
+    }
+  ]
+}

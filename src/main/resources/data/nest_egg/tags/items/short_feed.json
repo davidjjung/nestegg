@@ -1,0 +1,38 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:spider_eye",
+    {
+      "id": "spawn:sunflower_seeds",
+      "required": false
+    },
+    {
+      "id": "miners_delight:arthropod",
+      "required": false
+    },
+    {
+      "id": "miners_delight:silverfish_eggs",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:mosquito_larva",
+      "required": false
+    },
+    {
+      "id": "alexsmobs:maggot",
+      "required": false
+    },
+    {
+      "id": "autumnity:snail_shell_piece",
+      "required": false
+    },
+    {
+      "id": "naturalist:snail_shell",
+      "required": false
+    },
+    {
+      "id": "spawn:snail_shell",
+      "required": false
+    }
+  ]
+}

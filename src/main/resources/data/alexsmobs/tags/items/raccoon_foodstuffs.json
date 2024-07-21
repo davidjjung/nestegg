@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "autumnity:turkey_egg",
+      "required": false
+    },
+    {
+      "id": "naturalist:duck_egg",
+      "required": false
+    },
+    {
+      "id": "naturalist:tortoise_egg",
+      "required": false
+    },
+    {
+      "id": "naturalist:alligator_egg",
+      "required": false
+    },
+    {
+      "id": "environmental:duck_egg",
+      "required": false
+    }
+  ]
+}

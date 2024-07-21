@@ -1,0 +1,46 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+issueTrackerURL = ""
+license = "MIT License"
+
+[[mods]]
+modId = "nest_egg"
+version = "${file.jarVersion}"
+logoFile = "logo.png"
+itemIcon = "minecraft:dirt"
+configBackground = "minecraft:textures/block/dirt.png"
+authors = "DavigJ"
+credits = "Noodlescript"
+displayURL = ""
+displayName = "Nest Egg"
+description = '''
+    An Incubation add-on that adds some egg-related behaviors.
+    '''
+
+[[dependencies.nest_egg]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.nest_egg]]
+modId = "forge"
+mandatory = true
+versionRange = "[47.2,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.nest_egg]]
+modId = "blueprint"
+mandatory = true
+versionRange = "[7.1.0,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.nest_egg]]
+modId = "incubation"
+mandatory = true
+versionRange = "[4.0.2,)"
+ordering = "AFTER"
+side = "BOTH"
