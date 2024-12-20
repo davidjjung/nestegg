@@ -1,4 +1,4 @@
-package com.davigj.nest_egg.common.entity.ai.goal;
+/* package com.davigj.nest_egg.common.entity.ai.goal;
 
 import com.davigj.nest_egg.core.NestEgg;
 import com.github.alexthe666.alexsmobs.entity.EntityCrow;
@@ -97,4 +97,4 @@ public class FleeNestGoal extends Goal {
         BlockPos ground = this.thief.level().getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, radialPos);
         return !this.thief.isTargetBlocked(Vec3.atCenterOf(ground.above())) ? ground : null;
     }
-}
+} */

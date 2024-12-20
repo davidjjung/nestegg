@@ -5,7 +5,6 @@ import com.davigj.nest_egg.core.NEConfig;
 import com.davigj.nest_egg.core.NestEgg;
 import com.davigj.nest_egg.core.other.NECompatUtil;
 import com.davigj.nest_egg.core.registry.NESoundEvents;
-import com.github.alexthe666.alexsmobs.misc.AMSoundRegistry;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
 import com.teamabnormals.blueprint.core.api.EggLayer;
 import net.minecraft.core.BlockPos;
@@ -26,16 +25,18 @@ import net.minecraftforge.event.ForgeEventFactory;
 public class EmuIncubateGoal extends MoveToBlockGoal {
     static TrackedDataManager manager = TrackedDataManager.INSTANCE;
     protected int ticksWaited;
+    protected EggLayer eggLayer;
 
     public EmuIncubateGoal(EggLayer eggLayer, double speedIn) {
         super((Animal) eggLayer, speedIn, 16);
+        this.eggLayer = eggLayer;
     }
 
     @Override
     protected boolean isValidTarget(LevelReader level, BlockPos pos) {
         BlockState blockstate = level.getBlockState(pos.above());
         Block block = blockstate.getBlock();
-        return block instanceof EmuNestBlock;
+        return block instanceof EmuNestBlock nest && nest.getEgg() == eggLayer.getEggItem();
     }
 
     public void tick() {
@@ -53,7 +54,7 @@ public class EmuIncubateGoal extends MoveToBlockGoal {
                     this.mob.getLookControl().setLookAt(this.blockPos.getX() + 0.5, this.blockPos.getY(), this.blockPos.getZ() + 0.5);
                 }
                 if (this.mob.getRandom().nextFloat() < 0.006F) {
-                    this.mob.playSound(AMSoundRegistry.EMU_IDLE.get(), 1.0F, 0.7F);
+                    NECompatUtil.playEmuIncubateSound(this.mob);
                 }
                 ++this.ticksWaited;
             }
