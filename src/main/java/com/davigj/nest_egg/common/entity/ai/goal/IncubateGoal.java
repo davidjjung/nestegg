@@ -13,7 +13,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.MoveToBlockGoal;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -27,18 +26,18 @@ import static com.teamabnormals.incubation.common.block.BirdNestBlock.EGGS;
 public class IncubateGoal extends MoveToBlockGoal {
     static TrackedDataManager manager = TrackedDataManager.INSTANCE;
     protected int ticksWaited;
-    protected Item egg;
+    protected EggLayer eggLayer;
 
-    public IncubateGoal(EggLayer eggLayer, double speedIn, Item egg) {
+    public IncubateGoal(EggLayer eggLayer, double speedIn) {
         super((Animal) eggLayer, speedIn, 16);
-        this.egg = egg;
+        this.eggLayer = eggLayer;
     }
 
     @Override
     protected boolean isValidTarget(LevelReader level, BlockPos pos) {
         BlockState blockstate = level.getBlockState(pos.above());
         Block block = blockstate.getBlock();
-        return block instanceof BirdNestBlock nest && nest.getEgg() == egg;
+        return block instanceof BirdNestBlock nest && nest.getEgg() == eggLayer.getEggItem();
     }
 
     public void tick() {
@@ -48,7 +47,7 @@ public class IncubateGoal extends MoveToBlockGoal {
             } else {
                 if (ticksWaited > NEConfig.COMMON.incubationTime.get() - 100) {
                     if (!NEConfig.COMMON.ambient.get() && this.mob.getRandom().nextFloat() < 0.06F) {
-                        ItemParticleOption shell = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(egg));
+                        ItemParticleOption shell = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(eggLayer.getEggItem()));
                         ((ServerLevel) this.mob.level()).sendParticles(shell, this.blockPos.getX() + 0.5, this.blockPos.getY() + 1.4,
                                 this.blockPos.getZ() + 0.5, 1, 0, 0.05D, 0, 0.08D);
                         this.mob.playSound(NESoundEvents.EGG_CRACK.get(), 1.0F, 1.0F);
@@ -82,7 +81,7 @@ public class IncubateGoal extends MoveToBlockGoal {
         if (state.getBlock() instanceof BirdNestBlock nest) {
             // Audiovisual FX
             this.mob.playSound(NESoundEvents.EGG_HATCH.get());
-            ItemParticleOption shell = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(egg));
+            ItemParticleOption shell = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(eggLayer.getEggItem()));
             for (int i = 0; i < 4; i++) {
                 ((ServerLevel) this.mob.level()).sendParticles(shell, this.blockPos.getX() + 0.5, this.blockPos.getY() + 1.4,
                         this.blockPos.getZ() + 0.5, 1, 0, 0.05D, 0, 0.15D);

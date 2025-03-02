@@ -1,0 +1,19 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "bountiful_critters"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "nest_egg:be_emu_egg_crate"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "bountiful_critters:emu_egg"
+  }
+}

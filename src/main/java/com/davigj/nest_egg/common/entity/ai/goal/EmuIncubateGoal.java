@@ -46,7 +46,7 @@ public class EmuIncubateGoal extends MoveToBlockGoal {
             } else {
                 if (ticksWaited > NEConfig.COMMON.emuIncubationTime.get() - 80) {
                     if (this.mob.getRandom().nextFloat() < 0.06F) {
-                        ItemParticleOption shell = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(NECompatUtil.emuEgg));
+                        ItemParticleOption shell = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(eggLayer.getEggItem()));
                         ((ServerLevel) this.mob.level()).sendParticles(shell, this.blockPos.getX() + 0.5, this.blockPos.getY() + 1.4,
                                 this.blockPos.getZ() + 0.5, 1, 0, 0.05D, 0, 0.08D);
                         this.mob.playSound(NESoundEvents.EGG_CRACK.get(), 1.0F, 1.0F);

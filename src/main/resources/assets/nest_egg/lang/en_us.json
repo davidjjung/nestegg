@@ -1,11 +1,17 @@
 {
   "block.nest_egg.hay_duck_nest": "Hay Duck Nest",
   "block.nest_egg.twig_duck_nest": "Twig Duck Nest",
+  "block.nest_egg.hay_pheasant_nest": "Hay Pheasant Nest",
+  "block.nest_egg.twig_pheasant_nest": "Twig Pheasant Nest",
   "block.nest_egg.hay_ge_duck_nest": "Hay Duck Nest",
   "block.nest_egg.twig_ge_duck_nest": "Twig Duck Nest",
   "block.nest_egg.hay_emu_nest": "Hay Emu Nest",
   "block.nest_egg.twig_emu_nest": "Twig Emu Nest",
   "block.nest_egg.emu_egg_crate": "Emu Egg Crate",
+  "block.nest_egg.hay_be_emu_nest": "Hay Emu Nest",
+  "block.nest_egg.twig_be_emu_nest": "Twig Emu Nest",
+  "block.nest_egg.be_emu_egg_crate": "Emu Egg Crate",
+  "block.nest_egg.pheasant_egg_crate": "Pheasant Egg Crate",
   "block.nest_egg.duck_egg_crate": "Duck Egg Crate",
   "block.nest_egg.ge_duck_egg_crate": "Duck Egg Crate",
 

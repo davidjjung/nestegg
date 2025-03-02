@@ -12,14 +12,14 @@ import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(targets = "com.github.alexthe666.alexsmobs.entity.EntityEmu")
-public abstract class EntityEmuMixin extends Animal implements EggLayer {
+@Mixin(targets = "net.dylanvhs.bountiful_critters.entity.custom.PheasantEntity")
+public class PheasantEntityMixin implements EggLayer {
+    protected PheasantEntityMixin(EntityType<? extends Animal> p_27557_, Level p_27558_) {
+        super();
+    }
+
     @Shadow
     public int timeUntilNextEgg;
-
-    protected EntityEmuMixin(EntityType<? extends Animal> p_27557_, Level p_27558_) {
-        super(p_27557_, p_27558_);
-    }
 
     @Override
     public int getEggTimer() {
@@ -38,7 +38,7 @@ public abstract class EntityEmuMixin extends Animal implements EggLayer {
 
     @Override
     public Item getEggItem() {
-        return NECompatUtil.emuEgg;
+        return NECompatUtil.pheasantEgg;
     }
 
     @Override

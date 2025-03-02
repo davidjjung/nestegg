@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "nest_egg:block/be_emu_egg_crate"
+    }
+  }
+}

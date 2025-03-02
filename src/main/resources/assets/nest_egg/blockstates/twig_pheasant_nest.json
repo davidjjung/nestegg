@@ -1,0 +1,57 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "incubation:block/twig_nest"
+      }
+    },
+    {
+      "apply": {
+        "model": "nest_egg:block/one_pheasant_egg"
+      },
+      "when": {
+        "eggs": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "nest_egg:block/two_pheasant_eggs"
+      },
+      "when": {
+        "eggs": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "nest_egg:block/three_pheasant_eggs"
+      },
+      "when": {
+        "eggs": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "nest_egg:block/four_pheasant_eggs"
+      },
+      "when": {
+        "eggs": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "nest_egg:block/five_pheasant_eggs"
+      },
+      "when": {
+        "eggs": "5"
+      }
+    },
+    {
+      "apply": {
+        "model": "nest_egg:block/six_pheasant_eggs"
+      },
+      "when": {
+        "eggs": "6"
+      }
+    }
+  ]
+}

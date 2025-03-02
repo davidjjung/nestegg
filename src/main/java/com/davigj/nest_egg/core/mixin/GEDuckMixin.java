@@ -1,6 +1,5 @@
 package com.davigj.nest_egg.core.mixin;
 
-import com.davigj.nest_egg.core.NEConfig;
 import com.davigj.nest_egg.core.other.NECompatUtil;
 import com.teamabnormals.blueprint.core.api.EggLayer;
 import net.minecraft.sounds.SoundEvent;
@@ -12,9 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(targets = "com.blackgear.geologicexpansion.common.entity.duck.Duck")
 public abstract class GEDuckMixin extends Animal implements EggLayer {
@@ -42,7 +38,7 @@ public abstract class GEDuckMixin extends Animal implements EggLayer {
 
     @Override
     public Item getEggItem() {
-        return NECompatUtil.duckEgg;
+        return NECompatUtil.naturalistDuckEgg;
     }
 
     @Override

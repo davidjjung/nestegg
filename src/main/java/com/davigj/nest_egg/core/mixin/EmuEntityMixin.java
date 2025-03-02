@@ -5,21 +5,14 @@ import com.teamabnormals.blueprint.core.api.EggLayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(targets = "com.github.alexthe666.alexsmobs.entity.EntityEmu")
-public abstract class EntityEmuMixin extends Animal implements EggLayer {
+@Mixin(targets = "net.dylanvhs.bountiful_critters.entity.custom.EmuEntity")
+public class EmuEntityMixin implements EggLayer {
     @Shadow
     public int timeUntilNextEgg;
-
-    protected EntityEmuMixin(EntityType<? extends Animal> p_27557_, Level p_27558_) {
-        super(p_27557_, p_27558_);
-    }
 
     @Override
     public int getEggTimer() {
@@ -38,7 +31,7 @@ public abstract class EntityEmuMixin extends Animal implements EggLayer {
 
     @Override
     public Item getEggItem() {
-        return NECompatUtil.emuEgg;
+        return NECompatUtil.BEemuEgg;
     }
 
     @Override

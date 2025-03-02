@@ -1,0 +1,7 @@
+{
+  "parent": "incubation:block/six_chicken_eggs",
+  "textures": {
+    "eggs": "nest_egg:block/pheasant_eggs",
+    "particle": "#eggs"
+  }
+}

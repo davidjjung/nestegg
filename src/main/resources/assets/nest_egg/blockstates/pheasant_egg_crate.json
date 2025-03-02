@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "nest_egg:block/pheasant_egg_crate"
+    }
+  }
+}

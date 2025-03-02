@@ -1,17 +1,11 @@
 package com.davigj.nest_egg.core.other;
 
-import com.blackgear.geologicexpansion.common.entity.duck.Duck;
-import com.blackgear.geologicexpansion.common.registries.GEItems;
-import com.davigj.nest_egg.common.entity.ai.goal.*;
+import com.davigj.nest_egg.common.entity.ai.goal.EmuIncubateGoal;
+import com.davigj.nest_egg.common.entity.ai.goal.IncubateGoal;
+import com.davigj.nest_egg.common.entity.ai.goal.SideEyeNestGoal;
+import com.davigj.nest_egg.common.entity.ai.goal.StealEggFromNestGoal;
 import com.davigj.nest_egg.core.NEConfig;
 import com.davigj.nest_egg.core.NestEgg;
-import com.github.alexthe666.alexsmobs.entity.EntityCrow;
-import com.github.alexthe666.alexsmobs.entity.EntityEmu;
-import com.github.alexthe666.alexsmobs.entity.EntityRaccoon;
-import com.github.alexthe666.alexsmobs.entity.ai.ShoebillAIFlightFlee;
-import com.starfish_studios.naturalist.core.registry.NaturalistItems;
-import com.teamabnormals.autumnity.common.entity.animal.Turkey;
-import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
 import com.teamabnormals.blueprint.core.api.EggLayer;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -27,9 +21,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.GameRules;
-import net.minecraftforge.event.AddPackFindersEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.BabyEntitySpawnEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -38,7 +30,10 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.List;
 import java.util.Optional;
+
+import static com.davigj.nest_egg.core.other.NECompatUtil.*;
 
 @Mod.EventBusSubscriber(modid = NestEgg.MOD_ID)
 public class NEEvents {
@@ -49,8 +44,8 @@ public class NEEvents {
     public static void nestWreckers(EntityJoinLevelEvent event) {
         if (!ModList.get().isLoaded("alexsmobs") || !NEConfig.COMMON.nestWrecker.get()) return;
         Entity entity = event.getEntity();
-        if (entity instanceof EntityRaccoon raccoon) {
-            raccoon.goalSelector.addGoal(7, new StealEggFromNestGoal(raccoon, 1.0D));
+        if (isRaccoon(entity)) {
+            ((Mob)(entity)).goalSelector.addGoal(7, new StealEggFromNestGoal((Animal)entity, 1.0D));
         }
     }
 
@@ -58,8 +53,8 @@ public class NEEvents {
     public static void sideEye(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
         if (!ModList.get().isLoaded("alexsmobs") || !NEConfig.COMMON.sideEye.get()) return;
-        if (entity instanceof EntityCrow crow) {
-            crow.goalSelector.addGoal(6, new SideEyeNestGoal(crow));
+        if (isCrow(entity)) {
+            ((Mob)(entity)).goalSelector.addGoal(6, new SideEyeNestGoal((Animal)entity));
         }
     }
 
@@ -67,33 +62,80 @@ public class NEEvents {
     public static void birdAlert(EntityJoinLevelEvent event) {
         Entity entity = event.getEntity();
         if (entity instanceof EggLayer eggLayer && NEConfig.COMMON.incubator.get()) {
+            Animal bird = (Animal) entity;
+
+            List<IncubateGoalAdder> handlers = List.of(
+                    new IncubateGoalAdder("autumnity", bird, eggLayer, BirdType.TURKEY),
+                    new IncubateGoalAdder("environmental", bird, eggLayer, BirdType.ENVIRONMENTAL_DUCK),
+                    new IncubateGoalAdder("geologicexpansion", bird, eggLayer, BirdType.GE_DUCK),
+                    new IncubateGoalAdder("naturalist", bird, eggLayer, BirdType.NATURALIST_DUCK),
+                    new IncubateGoalAdder("alexsmobs", bird, eggLayer, BirdType.EMU),
+                    new IncubateGoalAdder("bountiful_critters", bird, eggLayer, BirdType.BC_EMU),
+                    new IncubateGoalAdder("bountiful_critters", bird, eggLayer, BirdType.PHEASANT)
+            );
+
+            for (IncubateGoalAdder handler : handlers) {
+                if (handler.isValidBird()) {
+                    handler.addGoal();
+                    return;
+                }
+            }
+
             if (entity instanceof Chicken chicken) {
-                chicken.goalSelector.addGoal(2, new IncubateGoal(eggLayer, 1.0D, Items.EGG));
-            }
-            if (ModList.get().isLoaded("autumnity")) {
-                if (entity instanceof Turkey turkey) {
-                    turkey.goalSelector.addGoal(2, new IncubateGoal(eggLayer, 1.0D, AutumnityItems.TURKEY_EGG.get()));
-                    return;
-                }
-            }
-            if (ModList.get().isLoaded("geologicexpansion")) {
-                if (entity instanceof Duck duck) {
-                    duck.goalSelector.addGoal(2, new IncubateGoal(eggLayer, 1.0D, GEItems.DUCK_EGG.get()));
-                    return;
-                }
-            }
-            if (ModList.get().isLoaded("naturalist")) {
-                if (entity instanceof com.starfish_studios.naturalist.common.entity.Duck duck) {
-                    duck.goalSelector.addGoal(2, new IncubateGoal(eggLayer, 1.0D, NaturalistItems.DUCK_EGG.get()));
-                }
-            }
-            if (ModList.get().isLoaded("alexsmobs")) {
-                if (entity instanceof EntityEmu emu) {
-                    emu.goalSelector.addGoal(2, new EmuIncubateGoal(eggLayer, 1.0D));
-                }
+                chicken.goalSelector.addGoal(2, new IncubateGoal(eggLayer, 1.0D));
             }
         }
     }
+
+    // Is it bad to make it an enum, it just looks so much neater imo
+    enum BirdType {
+        TURKEY,
+        ENVIRONMENTAL_DUCK,
+        GE_DUCK,
+        NATURALIST_DUCK,
+        EMU,
+        BC_EMU,
+        PHEASANT
+    }
+
+    static class IncubateGoalAdder {
+        private final String modName;
+        private final Animal bird;
+        private final EggLayer eggLayer;
+        private final BirdType birdType;
+
+        IncubateGoalAdder(String modName, Animal bird, EggLayer eggLayer, BirdType birdType) {
+            this.modName = modName;
+            this.bird = bird;
+            this.eggLayer = eggLayer;
+            this.birdType = birdType;
+        }
+
+        boolean isValidBird() {
+            return ModList.get().isLoaded(modName) && checkBirdType(birdType, bird);
+        }
+
+        void addGoal() {
+            if (birdType == BirdType.EMU || birdType == BirdType.BC_EMU) {
+                bird.goalSelector.addGoal(2, new EmuIncubateGoal(eggLayer, 1.0D));
+            } else {
+                bird.goalSelector.addGoal(2, new IncubateGoal(eggLayer, 1.0D));
+            }
+        }
+
+        private boolean checkBirdType(BirdType type, Entity entity) {
+            return switch (type) {
+                case TURKEY -> isTurkey(entity);
+                case ENVIRONMENTAL_DUCK -> isEnvironmentalDuck(entity);
+                case GE_DUCK -> isGEDuck(entity);
+                case NATURALIST_DUCK -> isNaturalistDuck(entity);
+                case EMU -> isEmu(entity);
+                case BC_EMU -> isBCEmu(entity);
+                case PHEASANT -> isPheasant(entity);
+            };
+        }
+    }
+
 
     @SubscribeEvent
     public static void entityTick(LivingEvent.LivingTickEvent event) {
@@ -112,23 +154,23 @@ public class NEEvents {
             }
         }
         if (!ModList.get().isLoaded("alexsmobs")) return;
-        if (target instanceof EntityRaccoon raccoon) {
-            int hungy = manager.getValue(raccoon, NestEgg.THIEF_TIMER);
+        if (isRaccoon(target)) {
+            int hungy = manager.getValue(target, NestEgg.THIEF_TIMER);
             if (hungy > 0) {
-                manager.setValue(raccoon, NestEgg.THIEF_TIMER, hungy - 1);
+                manager.setValue(target, NestEgg.THIEF_TIMER, hungy - 1);
             }
         }
-        if (target instanceof EntityCrow crow) {
-            int hungy = manager.getValue(crow, NestEgg.THIEF_TIMER);
+        if (isCrow(target)) {
+            int hungy = manager.getValue(target, NestEgg.THIEF_TIMER);
             if (hungy > 0) {
-                manager.setValue(crow, NestEgg.THIEF_TIMER, hungy - 1);
+                manager.setValue(target, NestEgg.THIEF_TIMER, hungy - 1);
             }
-            int flee = manager.getValue(crow, NestEgg.FLEE_TIMER);
+            int flee = manager.getValue(target, NestEgg.FLEE_TIMER);
             if (flee > 0) {
-                if (!crow.isFlying() && (crow.onGround() || crow.isInWater())) {
-                    crow.setFlying(false);
+                if (!isCrowFlying(target) && (target.onGround() || target.isInWater())) {
+                    setNotFlying(target);
                 }
-                manager.setValue(crow, NestEgg.FLEE_TIMER, flee - 1);
+                manager.setValue(target, NestEgg.FLEE_TIMER, flee - 1);
             }
         }
     }
@@ -193,16 +235,18 @@ public class NEEvents {
                 }
             }
 
-            if (ModList.get().isLoaded("alexsmobs") && parentB instanceof EntityEmu emu) {
-                eggo.setEggTimer(400);
-                if (NEConfig.COMMON.incubator.get()) {
-                    manager.setValue(emu, NestEgg.EMU_INCUBATION_COOLDOWN, 0);
-                    manager.setValue(parentA, NestEgg.EMU_INCUBATION_COOLDOWN, NEConfig.COMMON.emuIncubationCooldown.get());
-                    if (NEConfig.COMMON.birdFeed.get()) {
-                        manager.setValue(emu, NestEgg.FEED_TIMER, NEConfig.COMMON.longTier.get());
+            if (ModList.get().isLoaded("alexsmobs")) {
+                if (isEmu(parentB)) {
+                    eggo.setEggTimer(400);
+                    if (NEConfig.COMMON.incubator.get()) {
+                        manager.setValue(parentB, NestEgg.EMU_INCUBATION_COOLDOWN, 0);
+                        manager.setValue(parentA, NestEgg.EMU_INCUBATION_COOLDOWN, NEConfig.COMMON.emuIncubationCooldown.get());
+                        if (NEConfig.COMMON.birdFeed.get()) {
+                            manager.setValue(parentB, NestEgg.FEED_TIMER, NEConfig.COMMON.longTier.get());
+                        }
                     }
+                    return;
                 }
-                return;
             }
             eggo.setEggTimer(200);
             if (NEConfig.COMMON.incubator.get()) {
@@ -213,16 +257,5 @@ public class NEEvents {
                 }
             }
         }
-    }
-
-    @SubscribeEvent
-    public static void optionalDatapack(AddPackFindersEvent event) {
-//        Path resourcePath = ModList.get().getModFileById(NestEgg.MOD_ID).getFile().findResource("datapacks/" + id.getPath());
-//        Pack pack = Pack.readMetaAndCreate(id.toString(), Component.literal(id.getNamespace() + "/" + id.getPath()), false, packId -> new PathPackResources(packId, true, resourcePath), PackType.CLIENT_RESOURCES, Pack.Position.TOP, PackSource.BUILT_IN);
-//        if (pack == null) {
-//            Veil.LOGGER.error("Failed to find builtin pack: {}", id);
-//            return;
-//        }
-//        event.addRepositorySource(packConsumer -> packConsumer.accept(pack));
     }
 }
