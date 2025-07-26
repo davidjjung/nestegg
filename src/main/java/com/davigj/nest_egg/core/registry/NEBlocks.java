@@ -35,6 +35,7 @@ public class NEBlocks {
     public static final RegistryObject<Block> HAY_DUCK_NEST;
     public static final RegistryObject<Block> HAY_PHEASANT_NEST;
     public static final RegistryObject<Block> HAY_GE_DUCK_NEST;
+
     public static final RegistryObject<Block> EMU_EGG_CRATE;
     public static final RegistryObject<Block> BE_EMU_EGG_CRATE;
     public static final RegistryObject<Block> DUCK_EGG_CRATE;

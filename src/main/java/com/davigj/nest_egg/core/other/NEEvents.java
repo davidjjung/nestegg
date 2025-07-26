@@ -15,10 +15,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.animal.Chicken;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
@@ -81,8 +81,8 @@ public class NEEvents {
                 }
             }
 
-            if (entity instanceof Chicken chicken) {
-                chicken.goalSelector.addGoal(2, new IncubateGoal(eggLayer, 1.0D));
+            if (entity.getType() == EntityType.CHICKEN) {
+                bird.goalSelector.addGoal(2, new IncubateGoal(eggLayer, 1.0D));
             }
         }
     }

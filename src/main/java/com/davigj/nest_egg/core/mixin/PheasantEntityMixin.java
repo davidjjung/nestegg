@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(targets = "net.dylanvhs.bountiful_critters.entity.custom.PheasantEntity")
+@Mixin(targets = "net.dylanvhs.bountiful_critters.entity.custom.land.PheasantEntity")
 public class PheasantEntityMixin implements EggLayer {
     protected PheasantEntityMixin(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super();

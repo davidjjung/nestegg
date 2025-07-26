@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(targets = "net.dylanvhs.bountiful_critters.entity.custom.EmuEntity")
+@Mixin(targets = "net.dylanvhs.bountiful_critters.entity.custom.land.EmuEntity")
 public class EmuEntityMixin implements EggLayer {
     @Shadow
     public int timeUntilNextEgg;

@@ -8,13 +8,13 @@ import com.github.alexthe666.alexsmobs.entity.EntityRaccoon;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.alexsmobs.misc.AMSoundRegistry;
 import com.starfish_studios.naturalist.common.entity.Duck;
-import com.starfish_studios.naturalist.core.registry.NaturalistItems;
+import com.starfish_studios.naturalist.core.registry.NaturalistRegistry;
 import com.teamabnormals.autumnity.common.entity.animal.Turkey;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
 import com.teamabnormals.incubation.common.block.BirdNestBlock;
-import net.dylanvhs.bountiful_critters.entity.custom.EmuEntity;
-import net.dylanvhs.bountiful_critters.entity.custom.PheasantEntity;
+import net.dylanvhs.bountiful_critters.entity.custom.land.EmuEntity;
+import net.dylanvhs.bountiful_critters.entity.custom.land.PheasantEntity;
 import net.dylanvhs.bountiful_critters.item.ModItems;
 import net.dylanvhs.bountiful_critters.sounds.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -114,7 +114,7 @@ public class NECompatUtil {
         emuEgg = ModList.get().isLoaded("alexsmobs") ? AMItemRegistry.EMU_EGG.get() : Items.AIR;
         BEemuEgg = ModList.get().isLoaded("bountiful_critters") ? ModItems.EMU_EGG.get() : Items.AIR;
         pheasantEgg = ModList.get().isLoaded("bountiful_critters") ? ModItems.PHEASANT_EGG.get() : Items.AIR;
-        naturalistDuckEgg = ModList.get().isLoaded("naturalist") ? NaturalistItems.DUCK_EGG.get() : Items.AIR;
+        naturalistDuckEgg = ModList.get().isLoaded("naturalist") ? NaturalistRegistry.DUCK_EGG.get() : Items.AIR;
         GEduckEgg = ModList.get().isLoaded("geologicexpansion") ? GEItems.DUCK_EGG.get() : Items.AIR;
     }
 }
