@@ -40,3 +40,31 @@ type = "required"
 versionRange = "[5.0.2,)"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.nest_egg]]
+modId = "autumnity"
+type = "optional"
+versionRange = "[6.0.1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.nest_egg]]
+modId = "environmental"
+type = "optional"
+versionRange = "[5.0.1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.nest_egg]]
+modId = "naturalist"
+type = "optional"
+versionRange = "[1.0.2,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.nest_egg]]
+modId = "alexsmobs"
+type = "optional"
+versionRange = "[1.22.17,)"
+ordering = "AFTER"
+side = "BOTH"

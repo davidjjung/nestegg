@@ -74,17 +74,6 @@ public class NEBlocks {
         });
     }
 
-    public static void buildCreativeTabContents() {
-        if (ALEXSMOBS) {
-            CreativeModeTabContentsPopulator.mod(NestEgg.MOD_ID).tab(NATURAL_BLOCKS)
-                    .addItemsAfter(of(Blocks.FLOWERING_AZALEA), EMU_EGG_CRATE);
-        }
-        if (NATURALIST) {
-            CreativeModeTabContentsPopulator.mod(NestEgg.MOD_ID).tab(NATURAL_BLOCKS)
-                    .addItemsAfter(of(Blocks.FLOWERING_AZALEA), DUCK_EGG_CRATE);
-        }
-    }
-
     public static void setupTabEditors() {
         if (ALEXSMOBS) {
             CreativeModeTabContentsPopulator.mod(NestEgg.MOD_ID).tab(CreativeModeTabs.NATURAL_BLOCKS)
