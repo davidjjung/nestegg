@@ -19,7 +19,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 
 import static com.teamabnormals.incubation.common.block.BirdNestBlock.EGGS;
 
@@ -66,7 +66,7 @@ public class IncubateGoal extends MoveToBlockGoal {
     protected void onReachedTarget() {
         Level level = this.mob.level();
         if (this.mob.tickCount % 3 == 0) {
-            if (ForgeEventFactory.getMobGriefingEvent(level, this.mob) && !level.isClientSide) {
+            if (EventHooks.canEntityGrief(level, this.mob) && !level.isClientSide) {
                 BlockState state = level.getBlockState(this.blockPos.above());
                 if (!NEConfig.COMMON.ambient.get()) {
                     hatchEgg(state, level);

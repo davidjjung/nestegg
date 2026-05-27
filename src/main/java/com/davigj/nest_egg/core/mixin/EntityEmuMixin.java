@@ -1,6 +1,8 @@
 package com.davigj.nest_egg.core.mixin;
 
-import com.davigj.nest_egg.core.other.NECompatUtil;
+import com.davigj.nest_egg.core.other.compat.AMCompat;
+import com.davigj.nest_egg.core.other.compat.NaturalistCompat;
+import com.github.alexthe666.alexsmobs.entity.EntityEmu;
 import com.teamabnormals.blueprint.core.api.EggLayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -10,9 +12,11 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(targets = "com.github.alexthe666.alexsmobs.entity.EntityEmu")
+@Pseudo
+@Mixin(EntityEmu.class)
 public abstract class EntityEmuMixin extends Animal implements EggLayer {
     @Shadow
     public int timeUntilNextEgg;
@@ -38,7 +42,7 @@ public abstract class EntityEmuMixin extends Animal implements EggLayer {
 
     @Override
     public Item getEggItem() {
-        return NECompatUtil.emuEgg;
+        return AMCompat.emuEgg;
     }
 
     @Override

@@ -1,17 +1,20 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[1,)"
 issueTrackerURL = "https://github.com/davidjjung/nestegg/issues"
 license = "MIT License"
 
+[[mixins]]
+config = "nest_egg.mixins.json"
+
 [[mods]]
 modId = "nest_egg"
-version = "${file.jarVersion}"
+version = "${mod_version}"
 logoFile = "logo.png"
 itemIcon = "minecraft:dirt"
 configBackground = "minecraft:textures/block/dirt.png"
 authors = "DavigJ"
-credits = "Noodlescript"
-displayURL = "https://modrinth.com/project/nest-egg"
+credits = "Noodlescript, damikdevv"
+displayURL = "https://modrinth.com/mod/nest-egg"
 displayName = "Nest Egg"
 description = '''
     An Incubation add-on that adds some egg-related behaviors.
@@ -19,28 +22,21 @@ description = '''
 
 [[dependencies.nest_egg]]
 modId = "minecraft"
-mandatory = true
-versionRange = "[1.20.1,1.21)"
-ordering = "NONE"
+type = "required"
+versionRange = "[${mc_version}]"
+ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.nest_egg]]
-modId = "forge"
-mandatory = true
-versionRange = "[47.1,)"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.nest_egg]]
-modId = "blueprint"
-mandatory = true
-versionRange = "[7.1.0,)"
+modId = "neoforge"
+type = "required"
+versionRange = "[${neoforge},)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.nest_egg]]
 modId = "incubation"
-mandatory = true
-versionRange = "[4.0.2,)"
+type = "required"
+versionRange = "[5.0.2,)"
 ordering = "AFTER"
 side = "BOTH"

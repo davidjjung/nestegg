@@ -2,7 +2,8 @@ package com.davigj.nest_egg.common.entity.ai.goal;
 
 import com.davigj.nest_egg.core.NEConfig;
 import com.davigj.nest_egg.core.NestEgg;
-import com.davigj.nest_egg.core.other.NECompatUtil;
+import com.davigj.nest_egg.core.other.compat.AutumnityCompat;
+import com.davigj.nest_egg.core.other.compat.NaturalistCompat;
 import com.davigj.nest_egg.core.registry.NESoundEvents;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
 import com.teamabnormals.incubation.common.block.BirdNestBlock;
@@ -17,8 +18,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 
+import static com.davigj.nest_egg.core.other.compat.ModConstants.AUTUMNITY;
 import static com.teamabnormals.incubation.common.block.BirdNestBlock.EGGS;
 
 public class StealEggFromNestGoal extends MoveToBlockGoal {
@@ -70,7 +72,7 @@ public class StealEggFromNestGoal extends MoveToBlockGoal {
 
     protected void onReachedTarget() {
         Level level = this.thief.level();
-        if (ForgeEventFactory.getMobGriefingEvent(level, this.thief) && !level.isClientSide) {
+        if (EventHooks.canEntityGrief(level, this.thief) && !level.isClientSide) {
             BlockState state = level.getBlockState(this.blockPos.above());
             if (state.getBlock() instanceof BirdNestBlock nest) {
                 Block.popResource(level, this.blockPos.above(), new ItemStack((ItemLike)nest.getEgg()));
@@ -81,7 +83,9 @@ public class StealEggFromNestGoal extends MoveToBlockGoal {
                     level.setBlock(this.blockPos.above(), nest.getEmptyNest().defaultBlockState(), 3);
                 }
                 this.thief.playSound(SoundEvents.ITEM_PICKUP);
-                NECompatUtil.angryTurkeys(nest, level, blockPos.above(), this.thief);
+                if (AUTUMNITY) {
+                    AutumnityCompat.angryTurkeys(nest, level, blockPos.above(), this.thief);
+                }
                 manager.setValue(this.thief, NestEgg.THIEF_TIMER, NEConfig.COMMON.thiefTimer.get()
                         + this.thief.getRandom().nextInt(NEConfig.COMMON.thiefTimerBonus.get()));
                 manager.setValue(this.thief, NestEgg.FLEE_TIMER, 100 + this.thief.getRandom().nextInt(150));

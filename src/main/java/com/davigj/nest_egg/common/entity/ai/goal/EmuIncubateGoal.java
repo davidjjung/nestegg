@@ -3,7 +3,8 @@ package com.davigj.nest_egg.common.entity.ai.goal;
 import com.davigj.nest_egg.common.block.EmuNestBlock;
 import com.davigj.nest_egg.core.NEConfig;
 import com.davigj.nest_egg.core.NestEgg;
-import com.davigj.nest_egg.core.other.NECompatUtil;
+import com.davigj.nest_egg.core.other.compat.AMCompat;
+import com.davigj.nest_egg.core.other.compat.NaturalistCompat;
 import com.davigj.nest_egg.core.registry.NESoundEvents;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
 import com.teamabnormals.blueprint.core.api.EggLayer;
@@ -20,7 +21,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
-import net.minecraftforge.event.ForgeEventFactory;
+import net.neoforged.neoforge.event.EventHooks;
 
 public class EmuIncubateGoal extends MoveToBlockGoal {
     static TrackedDataManager manager = TrackedDataManager.INSTANCE;
@@ -54,7 +55,7 @@ public class EmuIncubateGoal extends MoveToBlockGoal {
                     this.mob.getLookControl().setLookAt(this.blockPos.getX() + 0.5, this.blockPos.getY(), this.blockPos.getZ() + 0.5);
                 }
                 if (this.mob.getRandom().nextFloat() < 0.006F) {
-                    NECompatUtil.playEmuIncubateSound(this.mob);
+                    AMCompat.playEmuIncubateSound(this.mob);
                 }
                 ++this.ticksWaited;
             }
@@ -65,7 +66,7 @@ public class EmuIncubateGoal extends MoveToBlockGoal {
     protected void onReachedTarget() {
         Level level = this.mob.level();
         if (this.mob.tickCount % 3 == 0) {
-            if (ForgeEventFactory.getMobGriefingEvent(level, this.mob) && !level.isClientSide) {
+            if (EventHooks.canEntityGrief(level, this.mob) && !level.isClientSide) {
                 BlockState state = level.getBlockState(this.blockPos.above());
                 hatchEgg(state, level);
                 manager.setValue(this.mob, NestEgg.EMU_INCUBATION_COOLDOWN, NEConfig.COMMON.emuIncubationCooldown.get());
@@ -78,7 +79,7 @@ public class EmuIncubateGoal extends MoveToBlockGoal {
         if (state.getBlock() instanceof EmuNestBlock nest) {
             // Audiovisual FX
             this.mob.playSound(NESoundEvents.EGG_HATCH.get());
-            ItemParticleOption shell = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(NECompatUtil.emuEgg));
+            ItemParticleOption shell = new ItemParticleOption(ParticleTypes.ITEM, new ItemStack(AMCompat.emuEgg));
             for (int i = 0; i < 4; i++) {
                 ((ServerLevel) this.mob.level()).sendParticles(shell, this.blockPos.getX() + 0.5, this.blockPos.getY() + 1.4,
                         this.blockPos.getZ() + 0.5, 1, 0, 0.05D, 0, 0.15D);

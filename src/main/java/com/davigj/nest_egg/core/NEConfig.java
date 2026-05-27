@@ -1,30 +1,30 @@
 package com.davigj.nest_egg.core;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 public class NEConfig {
     public static class Common {
-        public final ForgeConfigSpec.ConfigValue<Integer> thiefTimer;
-        public final ForgeConfigSpec.ConfigValue<Integer> thiefTimerBonus;
-        public final ForgeConfigSpec.ConfigValue<Integer> incubationTime;
-        public final ForgeConfigSpec.ConfigValue<Integer> emuIncubationTime;
-        public final ForgeConfigSpec.ConfigValue<Integer> emuIncubationCooldown;
-        public final ForgeConfigSpec.ConfigValue<Integer> incubationCooldown;
-        public final ForgeConfigSpec.ConfigValue<Boolean> nestWrecker;
-        public final ForgeConfigSpec.ConfigValue<Boolean> sideEye;
-        public final ForgeConfigSpec.ConfigValue<Boolean> incubator;
-        public final ForgeConfigSpec.ConfigValue<Boolean> ambient;
-        public final ForgeConfigSpec.ConfigValue<Boolean> turkeyAggro;
-        public final ForgeConfigSpec.ConfigValue<Boolean> emuAggro;
-        public final ForgeConfigSpec.ConfigValue<Boolean> birdFeed;
-        public final ForgeConfigSpec.ConfigValue<Boolean> eggBirth;
-        public final ForgeConfigSpec.ConfigValue<Boolean> feedTiers;
-        public final ForgeConfigSpec.ConfigValue<Boolean> noEggSpam;
-        public final ForgeConfigSpec.ConfigValue<Integer> shortTier;
-        public final ForgeConfigSpec.ConfigValue<Integer> longTier;
+        public final ModConfigSpec.ConfigValue<Integer> thiefTimer;
+        public final ModConfigSpec.ConfigValue<Integer> thiefTimerBonus;
+        public final ModConfigSpec.ConfigValue<Integer> incubationTime;
+        public final ModConfigSpec.ConfigValue<Integer> emuIncubationTime;
+        public final ModConfigSpec.ConfigValue<Integer> emuIncubationCooldown;
+        public final ModConfigSpec.ConfigValue<Integer> incubationCooldown;
+        public final ModConfigSpec.ConfigValue<Boolean> nestWrecker;
+        public final ModConfigSpec.ConfigValue<Boolean> sideEye;
+        public final ModConfigSpec.ConfigValue<Boolean> incubator;
+        public final ModConfigSpec.ConfigValue<Boolean> ambient;
+        public final ModConfigSpec.ConfigValue<Boolean> turkeyAggro;
+        public final ModConfigSpec.ConfigValue<Boolean> emuAggro;
+        public final ModConfigSpec.ConfigValue<Boolean> birdFeed;
+        public final ModConfigSpec.ConfigValue<Boolean> eggBirth;
+        public final ModConfigSpec.ConfigValue<Boolean> feedTiers;
+        public final ModConfigSpec.ConfigValue<Boolean> noEggSpam;
+        public final ModConfigSpec.ConfigValue<Integer> shortTier;
+        public final ModConfigSpec.ConfigValue<Integer> longTier;
 
-        Common (ForgeConfigSpec.Builder builder) {
+        Common (ModConfigSpec.Builder builder) {
             builder.push("changes");
             builder.push("experimental");
             noEggSpam = builder.comment("Egg layers no longer drop egg item entities periodically").define("No more egg spam", false);
@@ -57,12 +57,12 @@ public class NEConfig {
         }
     }
 
-    static final ForgeConfigSpec COMMON_SPEC;
+    static final ModConfigSpec COMMON_SPEC;
     public static final NEConfig.Common COMMON;
 
 
     static {
-        final Pair<Common, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(NEConfig.Common::new);
+        final Pair<Common, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(NEConfig.Common::new);
         COMMON_SPEC = specPair.getRight();
         COMMON = specPair.getLeft();
     }
