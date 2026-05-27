@@ -14,7 +14,7 @@ import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
 import com.teamabnormals.incubation.common.block.BirdNestBlock;
 import net.dylanvhs.bountiful_critters.entity.custom.land.EmuEntity;
-import net.dylanvhs.bountiful_critters.entity.custom.land.PheasantEntity;
+import net.dylanvhs.bountiful_critters.entity.custom.land.Pheasant;
 import net.dylanvhs.bountiful_critters.item.ModItems;
 import net.dylanvhs.bountiful_critters.sounds.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -79,7 +79,7 @@ public class NECompatUtil {
     }
 
     public static boolean isPheasant(Entity entity) {
-        return entity instanceof PheasantEntity;
+        return entity instanceof Pheasant;
     }
 
     public static boolean isCrow(Entity entity) {

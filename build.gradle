@@ -77,25 +77,24 @@ sourceSets.main.resources {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft}-${project.forge}"
-    implementation fg.deobf("com.teamabnormals:blueprint:${project.minecraft}-${project.blueprint}")
+    implementation fg.deobf("maven.modrinth:blueprint:xtEwbO0X")
     implementation fg.deobf("maven.modrinth:incubation:jwszUDno")
 
     compileOnly fg.deobf("maven.modrinth:citadel:ssXkoBKk")
     compileOnly fg.deobf("maven.modrinth:alexs-mobs:oaRqJ7uM")
     compileOnly fg.deobf("maven.modrinth:naturalist:Cx95h37p")
-    compileOnly fg.deobf("maven.modrinth:bountiful-critters:hQCm41sk")
+    compileOnly fg.deobf("maven.modrinth:bountiful-critters:R7mGGHCD")
     compileOnly fg.deobf("maven.modrinth:geckolib:39SztbiB")
     compileOnly fg.deobf("maven.modrinth:autumnity:dNSKgdoR")
     compileOnly fg.deobf("maven.modrinth:environmental:Oqy4LLPb")
     compileOnly fg.deobf("maven.modrinth:geologic-expansion:WTcI7GIb")
-    compileOnly fg.deobf("maven.modrinth:etcetera:uua8xPy8")
 
     runtimeOnly fg.deobf("maven.modrinth:buzzier-bees:PyMRj9VM")
     runtimeOnly fg.deobf("maven.modrinth:spawn-mod:RXKJiHaV")
-    runtimeOnly fg.deobf("maven.modrinth:bountiful-critters:hQCm41sk")
+    runtimeOnly fg.deobf("maven.modrinth:bountiful-critters:R7mGGHCD")
     runtimeOnly fg.deobf("maven.modrinth:geckolib:39SztbiB")
     runtimeOnly fg.deobf("maven.modrinth:environmental:Oqy4LLPb")
-    runtimeOnly fg.deobf("maven.modrinth:etcetera:uua8xPy8")
+    runtimeOnly fg.deobf("maven.modrinth:autumnity:dNSKgdoR")
 
     compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}-common-api:${project.jei}")
     compileOnly fg.deobf("mezz.jei:jei-${project.minecraft}-forge-api:${project.jei}")
