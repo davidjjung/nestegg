@@ -2,14 +2,14 @@
   "conditions": [
     {
       "type": "neoforge:mod_loaded",
-      "modid": "alexsmobs"
+      "modid": "naturalist"
     }
   ],
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
     "#": {
-      "item": "alexsmobs:emu_egg"
+      "item": "naturalist:duck_egg"
     }
   },
   "pattern": [
@@ -18,7 +18,7 @@
     "###"
   ],
   "result": {
-    "item": "nest_egg:emu_egg_crate"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "nest_egg:duck_egg_crate"
+  }
 }

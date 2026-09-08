@@ -2,18 +2,18 @@
   "conditions": [
     {
       "type": "neoforge:mod_loaded",
-      "modid": "naturalist"
+      "modid": "alexsmobs"
     }
   ],
   "type": "minecraft:crafting_shapeless",
   "category": "building",
   "ingredients": [
     {
-      "item": "nest_egg:duck_egg_crate"
+      "item": "nest_egg:emu_egg_crate"
     }
   ],
   "result": {
     "count": 9,
-    "item": "naturalist:duck_egg"
+    "id": "alexsmobs:emu_egg"
   }
 }
