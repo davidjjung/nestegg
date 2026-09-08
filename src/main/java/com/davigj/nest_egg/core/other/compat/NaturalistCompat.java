@@ -1,7 +1,7 @@
 package com.davigj.nest_egg.core.other.compat;
 
-import com.starfish_studios.naturalist.registry.NaturalistRegistry;
-import com.starfish_studios.naturalist.server.entity.mob.Duck;
+import com.crispytwig.naturalist.registry.NaturalistRegistry;
+import com.crispytwig.naturalist.server.entity.mob.Duck;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;

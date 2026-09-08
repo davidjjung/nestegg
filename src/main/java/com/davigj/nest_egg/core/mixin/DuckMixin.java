@@ -1,7 +1,7 @@
 package com.davigj.nest_egg.core.mixin;
 
+import com.crispytwig.naturalist.server.entity.mob.Duck;
 import com.davigj.nest_egg.core.other.compat.NaturalistCompat;
-import com.starfish_studios.naturalist.server.entity.mob.Duck;
 import com.teamabnormals.blueprint.core.api.EggLayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

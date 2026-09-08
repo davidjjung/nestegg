@@ -1,22 +1,16 @@
 package com.davigj.nest_egg.core.other.compat;
 
-import com.davigj.nest_egg.common.block.EmuNestBlock;
 import com.davigj.nest_egg.core.NEConfig;
 import com.github.alexthe666.alexsmobs.entity.EntityCrow;
 import com.github.alexthe666.alexsmobs.entity.EntityEmu;
 import com.github.alexthe666.alexsmobs.entity.EntityRaccoon;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.alexsmobs.misc.AMSoundRegistry;
-import com.teamabnormals.autumnity.common.entity.animal.Turkey;
-import com.teamabnormals.autumnity.core.registry.AutumnityItems;
-import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;
-import com.teamabnormals.incubation.common.block.BirdNestBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -62,7 +56,7 @@ public class AMCompat {
     }
 
     public static void angryEmus(Level level, BlockPos pos, LivingEntity target) {
-        if (!NEConfig.COMMON.turkeyAggro.get()) return;
+        if (!NEConfig.COMMON.emuAggro.get()) return;
         int mercy = 3;
         for (EntityEmu emu : level.getEntitiesOfClass(EntityEmu.class, new AABB(pos).inflate(10))) {
             if (!emu.isBaby() && mercy > 0) {
