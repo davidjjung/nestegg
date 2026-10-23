@@ -24,11 +24,11 @@ public class NestEgg {
     public static final String MOD_ID = "nest_egg";
     public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
 
-    public static final TrackedData<Integer> THIEF_TIMER = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enablePersistence().build();
-    public static final TrackedData<Integer> INCUBATION_COOLDOWN = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enablePersistence().build();
-    public static final TrackedData<Integer> EMU_INCUBATION_COOLDOWN = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enablePersistence().build();
-    public static final TrackedData<Integer> FEED_TIMER = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enablePersistence().build();
-    public static final TrackedData<Integer> FLEE_TIMER = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enablePersistence().build();
+    public static final TrackedData<Integer> THIEF_TIMER = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enableSaving(Codec.INT.fieldOf("Integer")).build();
+    public static final TrackedData<Integer> INCUBATION_COOLDOWN = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enableSaving(Codec.INT.fieldOf("Integer")).build();
+    public static final TrackedData<Integer> EMU_INCUBATION_COOLDOWN = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enableSaving(Codec.INT.fieldOf("Integer")).build();
+    public static final TrackedData<Integer> FEED_TIMER = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enableSaving(Codec.INT.fieldOf("Integer")).build();
+    public static final TrackedData<Integer> FLEE_TIMER = TrackedData.Builder.create(ByteBufCodecs.INT, () -> 0).enableSaving(Codec.INT.fieldOf("Integer")).build();
 
     public NestEgg(IEventBus bus, ModContainer container) {
         NEBlocks.BLOCKS.register(bus);
