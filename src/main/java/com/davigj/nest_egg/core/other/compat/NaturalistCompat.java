@@ -1,7 +1,7 @@
 package com.davigj.nest_egg.core.other.compat;
 
 import com.crispytwig.naturalist.registry.NaturalistRegistry;
-import com.crispytwig.naturalist.server.entity.mob.Duck;
+import com.crispytwig.naturalist.world.entity.animal.duck.Duck;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -10,6 +10,7 @@ import static com.davigj.nest_egg.core.other.compat.ModConstants.NATURALIST;
 
 public class NaturalistCompat {
     public static final Item naturalistDuckEgg;
+    public static final Item ostrichEgg;
 
     public static boolean isNaturalistDuck(Entity entity) {
         return entity instanceof Duck;
@@ -17,5 +18,6 @@ public class NaturalistCompat {
 
     static {
         naturalistDuckEgg = NATURALIST ? NaturalistRegistry.DUCK_EGG.get() : Items.AIR;
+        ostrichEgg = NATURALIST ? NaturalistRegistry.OSTRICH_EGG.get().asItem() : Items.AIR;
     }
 }
