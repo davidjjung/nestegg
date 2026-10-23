@@ -2,11 +2,10 @@ package com.davigj.nest_egg.core;
 
 import com.davigj.nest_egg.core.registry.NEBlocks;
 import com.davigj.nest_egg.core.registry.NESoundEvents;
+import com.mojang.serialization.Codec;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedData;
 import com.teamabnormals.blueprint.common.world.storage.tracking.TrackedDataManager;
 import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
-import com.teamabnormals.incubation.core.Incubation;
-import com.teamabnormals.incubation.core.registry.IncubationItems;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
