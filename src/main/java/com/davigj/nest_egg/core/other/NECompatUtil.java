@@ -1,14 +1,14 @@
 package com.davigj.nest_egg.core.other;
 
 import com.blackgear.geologicexpansion.common.registries.GEItems;
+import com.crispytwig.naturalist.registry.NaturalistRegistry;
+import com.crispytwig.naturalist.world.entity.animal.duck.Duck;
 import com.davigj.nest_egg.core.NEConfig;
 import com.github.alexthe666.alexsmobs.entity.EntityCrow;
 import com.github.alexthe666.alexsmobs.entity.EntityEmu;
 import com.github.alexthe666.alexsmobs.entity.EntityRaccoon;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.github.alexthe666.alexsmobs.misc.AMSoundRegistry;
-import com.starfish_studios.naturalist.common.entity.Duck;
-import com.starfish_studios.naturalist.core.registry.NaturalistRegistry;
 import com.teamabnormals.autumnity.common.entity.animal.Turkey;
 import com.teamabnormals.autumnity.core.registry.AutumnityItems;
 import com.teamabnormals.autumnity.core.registry.AutumnitySoundEvents;

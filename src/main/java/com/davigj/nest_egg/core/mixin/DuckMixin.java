@@ -1,5 +1,6 @@
 package com.davigj.nest_egg.core.mixin;
 
+import com.crispytwig.naturalist.world.entity.animal.duck.Duck;
 import com.davigj.nest_egg.core.other.NECompatUtil;
 import com.teamabnormals.blueprint.core.api.EggLayer;
 import net.minecraft.sounds.SoundEvent;
@@ -10,9 +11,11 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin(targets = "com.starfish_studios.naturalist.common.entity.Duck")
+@Pseudo
+@Mixin(Duck.class)
 public abstract class DuckMixin extends Animal implements EggLayer {
     protected DuckMixin(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);

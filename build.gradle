@@ -82,7 +82,7 @@ dependencies {
 
     compileOnly fg.deobf("maven.modrinth:citadel:ssXkoBKk")
     compileOnly fg.deobf("maven.modrinth:alexs-mobs:oaRqJ7uM")
-    compileOnly fg.deobf("maven.modrinth:naturalist:Cx95h37p")
+    compileOnly fg.deobf("maven.modrinth:naturalist:b9qy62Lr")
     compileOnly fg.deobf("maven.modrinth:bountiful-critters:R7mGGHCD")
     compileOnly fg.deobf("maven.modrinth:geckolib:39SztbiB")
     compileOnly fg.deobf("maven.modrinth:autumnity:dNSKgdoR")
