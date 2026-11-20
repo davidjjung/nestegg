@@ -11,7 +11,6 @@ import com.teamabnormals.incubation.common.block.BirdNestBlock;
 import com.teamabnormals.incubation.common.block.EmptyNestBlock;
 import com.teamabnormals.incubation.core.registry.IncubationBlocks;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -27,8 +26,6 @@ import static com.davigj.nest_egg.core.other.compat.ModConstants.ALEXSMOBS;
 import static com.davigj.nest_egg.core.other.compat.ModConstants.NATURALIST;
 import static com.teamabnormals.incubation.core.registry.IncubationBlocks.HAY_NEST;
 import static com.teamabnormals.incubation.core.registry.IncubationBlocks.TWIG_NEST;
-import static net.minecraft.world.item.CreativeModeTabs.NATURAL_BLOCKS;
-import static net.minecraft.world.item.crafting.Ingredient.of;
 
 public class NEBlocks {
     public static final BlockSubRegistryHelper BLOCKS;

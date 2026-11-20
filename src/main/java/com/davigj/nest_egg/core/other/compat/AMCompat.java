@@ -15,7 +15,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
-import net.neoforged.fml.ModList;
 
 import static com.davigj.nest_egg.core.other.compat.ModConstants.ALEXSMOBS;
 
@@ -50,7 +49,7 @@ public class AMCompat {
     }
 
     public static void playEmuIncubateSound(PathfinderMob mob) {
-        if (ModList.get().isLoaded("alexsmobs") && (isEmu(mob))) {
+        if (ALEXSMOBS && (isEmu(mob))) {
             mob.playSound(AMSoundRegistry.EMU_IDLE.get(), 1.0F, 0.7F);
         }
     }

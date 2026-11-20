@@ -51,8 +51,8 @@ dependencies {
 
     compileOnly("maven.modrinth:spawn-mod:OgmUYgeL")
     compileOnly("maven.modrinth:teallib:lZTBRemW")
-    compileOnly("maven.modrinth:citadel:uzrkhBpn")
-    compileOnly("maven.modrinth:alexs-mobs(1.21.1):KSgki4uc")
+    compileOnly("maven.modrinth:citadel:ZkgKf4xj")
+    compileOnly("maven.modrinth:alexsmobsneo:C1b7Q2me")
     compileOnly("maven.modrinth:naturalist:9Yn8ig4c")
     compileOnly("maven.modrinth:environmental:NdDV1AM8")
     compileOnly("maven.modrinth:autumnity:9jUNvDKx")
@@ -62,8 +62,8 @@ dependencies {
 
     runtimeOnly("maven.modrinth:spawn-mod:OgmUYgeL")
     runtimeOnly("maven.modrinth:teallib:lZTBRemW")
-    runtimeOnly("maven.modrinth:citadel:uzrkhBpn")
-    runtimeOnly("maven.modrinth:alexs-mobs(1.21.1):KSgki4uc")
+    runtimeOnly("maven.modrinth:citadel:ZkgKf4xj")
+    runtimeOnly("maven.modrinth:alexsmobsneo:C1b7Q2me")
     runtimeOnly("maven.modrinth:naturalist:9Yn8ig4c")
     runtimeOnly("maven.modrinth:environmental:NdDV1AM8")
     runtimeOnly("maven.modrinth:autumnity:9jUNvDKx")
